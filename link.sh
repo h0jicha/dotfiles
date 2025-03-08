@@ -44,8 +44,9 @@ link_file() {
 # 共通ファイルのリンク
 # =========================
 link_file "$DOTFILES_DIR/.bashrc"          "$HOME/.bashrc"
-link_file "$DOTFILES_DIR/.zshrc"           "$HOME/.zshrc"
 link_file "$DOTFILES_DIR/.bash_profile"    "$HOME/.bash_profile"
+link_file "$DOTFILES_DIR/.zshrc"           "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/.common"           "$HOME/.common"
 link_file "$DOTFILES_DIR/.gitconfig"       "$HOME/.gitconfig"
 link_file "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
 link_file "$DOTFILES_DIR/.vimrc"           "$HOME/.vimrc"
