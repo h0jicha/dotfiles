@@ -1,0 +1,4 @@
+source ~/.config/common/.aliases
+source ~/.config/common/.functions
+source ~/.config/common/.paths
+source ~/.config/common/.variables

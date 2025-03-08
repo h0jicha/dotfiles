@@ -1,9 +1,16 @@
+if [ -f ~/.config/common/.sources ]; then
+    source ~/.config/common/.sources
+fi
+
 # Prompt
 eval "$(starship init zsh)"
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Homebrew (Mac)
+# Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-if [ -f ~/.common ]; then
-    source ~/.common
-fi
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/git/bin:$PATH"
+export PATH="/Users/tanabehikaru/.npm-global/lib/node_modules:$PATH"
+
+alias gst='git status'

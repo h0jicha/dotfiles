@@ -11,7 +11,7 @@ mkdir -p "$BACKUP_DIR"
 
 # OS 判定
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-  if command -v apt &> /dev/null; then
+  if command -v apt &>/dev/null; then
     OS_TYPE="debian"
   else
     OS_TYPE="linux"
@@ -43,39 +43,45 @@ link_file() {
 # =========================
 # 共通ファイルのリンク
 # =========================
-link_file "$DOTFILES_DIR/.bashrc"          "$HOME/.bashrc"
-link_file "$DOTFILES_DIR/.bash_profile"    "$HOME/.bash_profile"
-link_file "$DOTFILES_DIR/.zshrc"           "$HOME/.zshrc"
-link_file "$DOTFILES_DIR/.common"           "$HOME/.common"
-link_file "$DOTFILES_DIR/.gitconfig"       "$HOME/.gitconfig"
+link_file "$DOTFILES_DIR/.bashrc" "$HOME/.bashrc"
+link_file "$DOTFILES_DIR/.bash_profile" "$HOME/.bash_profile"
+link_file "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
+link_file "$DOTFILES_DIR/.gitconfig" "$HOME/.gitconfig"
 link_file "$DOTFILES_DIR/.gitignore_global" "$HOME/.gitignore_global"
-link_file "$DOTFILES_DIR/.vimrc"           "$HOME/.vimrc"
+link_file "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
 
-# ~/.config ディレクトリがない場合は作成
+# .config ディレクトリ以下のリンク
 mkdir -p "$HOME/.config"
-
 link_file "$DOTFILES_DIR/.config/starship.toml" "$HOME/.config/starship.toml"
+
+# 共通シェル設定
+mkdir -p "$HOME/.config/common"
+link_file "$DOTFILES_DIR/.config/common/.aliases" "$HOME/.config/common/.aliases"
+link_file "$DOTFILES_DIR/.config/common/.functions" "$HOME/.config/common/.functions"
+link_file "$DOTFILES_DIR/.config/common/.paths" "$HOME/.config/common/.paths"
+link_file "$DOTFILES_DIR/.config/common/.variables" "$HOME/.config/common/.variables"
+link_file "$DOTFILES_DIR/.config/common/.sources" "$HOME/.config/common/.sources"
 
 # Neovim の設定
 mkdir -p "$HOME/.config/nvim"
-link_file "$DOTFILES_DIR/.config/nvim/init.vim"        "$HOME/.config/nvim/init.vim"
-link_file "$DOTFILES_DIR/.config/nvim/mason.vim"        "$HOME/.config/nvim/mason.vim"
-link_file "$DOTFILES_DIR/.config/nvim/lualine.vim"        "$HOME/.config/nvim/lualine.vim"
+link_file "$DOTFILES_DIR/.config/nvim/init.vim" "$HOME/.config/nvim/init.vim"
+link_file "$DOTFILES_DIR/.config/nvim/mason.vim" "$HOME/.config/nvim/mason.vim"
+link_file "$DOTFILES_DIR/.config/nvim/lualine.vim" "$HOME/.config/nvim/lualine.vim"
 link_file "$DOTFILES_DIR/.config/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 
 # =========================
 # OSごとの設定（必要なら追記）
 # =========================
 case "$OS_TYPE" in
-  debian)
-    # link_file "$DOTFILES_DIR/.config/debian_specific.conf" "$HOME/.config/specific.conf"
-    ;;
-  mac)
-    # link_file "$DOTFILES_DIR/.config/mac_specific.conf" "$HOME/.config/specific.conf"
-    ;;
-  linux)
-    # link_file "$DOTFILES_DIR/.config/linux_specific.conf" "$HOME/.config/specific.conf"
-    ;;
+debian)
+  # link_file "$DOTFILES_DIR/.config/debian_specific.conf" "$HOME/.config/specific.conf"
+  ;;
+mac)
+  # link_file "$DOTFILES_DIR/.config/mac_specific.conf" "$HOME/.config/specific.conf"
+  ;;
+linux)
+  # link_file "$DOTFILES_DIR/.config/linux_specific.conf" "$HOME/.config/specific.conf"
+  ;;
 esac
 
-echo "All dotfiles have been linked successfully."
+echo "✅ All dotfiles have been linked successfully."
