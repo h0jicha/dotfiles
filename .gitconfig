@@ -1,0 +1,24 @@
+[user]
+  name = h0jicha
+  email = mail@hojicha.dev
+
+[core]
+  editor = nvim
+  excludesfile = ~/.gitignore_global
+
+[alias]
+  co = checkout
+  st = status
+  ci = commit
+  br = branch
+  df = diff
+  lg = log --oneline --graph --decorate --all
+
+[color]
+  ui = auto
+
+[push]
+  default = simple
+
+[init]
+  defaultBranch = main
