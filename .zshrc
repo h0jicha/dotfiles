@@ -4,7 +4,8 @@ fi
 
 # Prompt
 eval "$(starship init zsh)"
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
