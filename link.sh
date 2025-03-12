@@ -69,6 +69,10 @@ link_file "$DOTFILES_DIR/.config/nvim/mason.vim" "$HOME/.config/nvim/mason.vim"
 link_file "$DOTFILES_DIR/.config/nvim/lualine.vim" "$HOME/.config/nvim/lualine.vim"
 link_file "$DOTFILES_DIR/.config/nvim/coc-settings.json" "$HOME/.config/nvim/coc-settings.json"
 
+# alacritty の設定
+mkdir -p "$HOME/.config/alacritty"
+link_file "$DOTFILES_DIR/.config/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+
 # =========================
 # OSごとの設定（必要なら追記）
 # =========================
