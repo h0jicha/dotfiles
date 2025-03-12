@@ -61,7 +61,7 @@ decorations = "full"
 dynamic_padding = true
 dynamic_title = true 
 opacity = 0.82
-title = ":)"
+title = "🤖"
 
 [window.padding]
 x = 10

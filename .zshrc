@@ -15,3 +15,5 @@ export PATH="/usr/local/git/bin:$PATH"
 export PATH="/Users/tanabehikaru/.npm-global/lib/node_modules:$PATH"
 
 alias gst='git status'
+
+bindkey -e
